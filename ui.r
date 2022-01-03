@@ -3,7 +3,6 @@ library(shiny)
 
 shinyUI(fluidPage(
     
-    # Application title
     titlePanel("Covid SIR rates"),
     
     sidebarLayout(
@@ -27,7 +26,6 @@ shinyUI(fluidPage(
         
         
         
-        # Show a plot of the generated distribution
         mainPanel(
             plotOutput("hee")
             
