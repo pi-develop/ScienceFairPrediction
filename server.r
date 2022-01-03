@@ -12,8 +12,8 @@ shinyServer (function(input, output) {
     covid=0:464
     vaccinated=input$vaccinated
     statedata[is.na(statedata)]=0
-    deltacases=sum(statedata$New.Cases[delta])
-    covidcases=sum(statedata$New.Confirmed.Cases[covid]+statedata$New.Cases[covid])
+    deltacases=sum(tail(statedata$New.Cases[delta],n=30))
+    covidcases=sum(tail(statedata$New.Confirmed.Cases[covid]+statedata$New.Cases[covid],n=30))
     covidrecovered=sum(statedata$Deaths_New[covid])
     deltarecovered=sum(statedata$Deaths_New[delta])
     deltainit=c(S=((1-vaccinated/100)*(population-deltacases-deltarecovered)),I=deltacases,R=(vaccinated/100)*(population+deltarecovered-deltacases))
