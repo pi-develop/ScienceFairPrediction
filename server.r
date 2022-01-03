@@ -6,11 +6,11 @@ library(reshape2)
 shinyServer (function(input, output) {
     output$hee= renderPlot({
     # Model inputs
-    statedata=read.csv("C:\\Users\\joshu\\Documents\\Rcoursera\\ScienceFairPrediction\\statedata.csv")
+    statedata=read.csv("C:\\Users\\joshu\\Documents\\Rcoursera\\ScienceFairPrediction\\ScienceFairPredictions\\statedata.csv")
     population=1421771
     delta=465:612
     covid=0:464
-    vaccinated<-input$vaccinated
+    vaccinated=input$vaccinated
     statedata[is.na(statedata)]=0
     deltacases=sum(statedata$New.Cases[delta])
     covidcases=sum(statedata$New.Confirmed.Cases[covid]+statedata$New.Cases[covid])
