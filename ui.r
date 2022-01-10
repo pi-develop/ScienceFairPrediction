@@ -1,5 +1,3 @@
-
-
 library(shiny)
 
 shinyUI(fluidPage(
@@ -12,8 +10,8 @@ shinyUI(fluidPage(
                         "Vaccination rate in percent:",
                         min = 0,
                         max = 100,
-                        value = 73),
-        
+                        value = 0),
+            
             selectInput(
                 "variant", "Variant of covid to model",list("SARS-COV-2", "SARS-COV-2 Delta Variant")
             )
@@ -22,10 +20,18 @@ shinyUI(fluidPage(
                     "Time in days to simulate:",
                     min = 1,
                     max = 365,
-                    value = 30)
-                ), 
-        
-        
+                    value = 100)
+    ), 
+    
+    
+    
+    mainPanel(
+        textOutput("intro"),
+        plotOutput("hee"),
+        textOutput("hoo")
+    )
+)
+)
         
         mainPanel(
             plotOutput("hee")
